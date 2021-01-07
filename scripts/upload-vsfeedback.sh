@@ -1,8 +1,7 @@
 #!/bin/sh
 
 if [ -z "$KEY" ]; then 
-  echo "$KEY is blank";
-  exit 1
+    KEY="shouldprobsSETSOMETHING3lse"
 fi
 
 GPG_TTY=$(tty) \

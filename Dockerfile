@@ -8,4 +8,6 @@ RUN git clone https://github.com/joshspicer/dotfiles.git ~/.dotfiles \
     && ln -s ~/.dotfiles/.zshrc ~/.zshrc \
     && ln -s ~/.dotfiles/.vimrc ~/.vimrc
 RUN echo "PROMPT='%F{red}[js] %1d $ %f'" >> ~/.zshrc
+COPY scripts/* /scripts
+ENV PATH="/scripts:${PATH}"
 ENTRYPOINT ["/bin/zsh"]
