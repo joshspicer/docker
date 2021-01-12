@@ -4,7 +4,7 @@ if [ -z "$KEY" ]; then
     read -sp 'Password: ' KEY
 fi
 
-LOGSDIR="/host/tmp/VSFeedbackVSRTCLogs.zip"
+LOGSDIR="/host/tmp/VSFeedbackVSRTCLogs"
 
 # GPG_TTY=$(tty) \
 # && export GPG_TTY \
