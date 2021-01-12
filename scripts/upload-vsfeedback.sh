@@ -1,11 +1,14 @@
 #!/bin/sh
 
 if [ -z "$KEY" ]; then 
-    KEY="shouldprobsSETSOMETHING3lse"
+    read -sp 'Password: ' KEY
 fi
 
-GPG_TTY=$(tty) \
-&& export GPG_TTY \
-&& cd /tmp \
-&& gpg --symmetric --batch --yes --passphrase $KEY VSFeedbackVSRTCLogs.zip \
-&& curl --upload-file VSFeedbackVSRTCLogs.zip.gpg https://free.keep.sh
+LOGSDIR="/host/tmp/VSFeedbackVSRTCLogs.zip"
+
+# GPG_TTY=$(tty) \
+# && export GPG_TTY \
+
+zip $LOGSDIR.zip $LOGSDIR/* \
+&& gpg --symmetric --batch --yes --passphrase $KEY $LOGSDIR.zip \
+&& curl --upload-file $LOGSDIR.zip.gpg https://free.keep.sh
