@@ -11,4 +11,5 @@ RUN echo "PROMPT='%F{red}[js] %1d $ %f'" >> ~/.zshrc
 COPY scripts/* /scripts/
 COPY well-known/* /well-known/
 ENV PATH="/scripts:${PATH}"
+
 ENTRYPOINT ["/bin/zsh"]
