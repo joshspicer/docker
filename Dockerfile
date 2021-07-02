@@ -1,7 +1,8 @@
-FROM alpine
+FROM ubuntu
 MAINTAINER hello@joshspicer.com
 
-RUN apk update && apk add --no-cache jq vim curl zsh git file socat tmux openssh zip gnupg tmux bind-tools
+RUN export DEBIAN_FRONTEND=noninteractive
+RUN apt update && apt install -y jq vim curl zsh git file socat tmux zip gnupg tmux
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 RUN git clone https://github.com/joshspicer/dotfiles.git ~/.dotfiles \
     && rm ~/.zshrc \
